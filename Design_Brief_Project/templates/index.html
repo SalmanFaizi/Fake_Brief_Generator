@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% include "partials/navbar.html" %} 
+
+<div class="container">
+    <div class="sidebar">
+        <h2>Generate Brief</h2>
+        <form id="generate-brief-form" method="POST">
+            <label for="brief-type">Select Brief Type:</label>
+            <select id="brief-type" name="brief_type">
+                <option value="">--Select Type--</option>
+                <option value="logo">Logo</option>
+                <option value="packaging">Packaging</option>
+                <option value="banner">Banner</option>
+                <!-- Add more options as needed -->
+            </select>
+            <label for="custom-brief-type">Or Enter Custom Brief Type:</label>
+            <input type="text" id="custom-brief-type" name="custom_brief_type">
+            <label for="domain">Select Domain:</label>
+            <select id="domain" name="domain">
+                <option value="">--Select Domain--</option>
+                <option value="education">Education</option>
+                <option value="technology">Technology</option>
+                <option value="food industry">Food Industry</option>
+                <!-- Add more options as needed -->
+            </select>
+            <label for="custom-domain">Or Enter Custom Domain:</label>
+            <input type="text" id="custom-domain" name="custom_domain">
+            <button type="submit">Generate</button>
+        </form>
+    </div>
+    <div class="main-content">
+        <h2>Generated Brief</h2>
+        <div id="generated-brief" class="generated-brief">
+            <textarea id="brief-output" rows="10" readonly>{{ content }}</textarea>
+            <div class="brief-actions">
+                <button id="copy-brief">Copy</button>
+                <button id="modify-brief">Modify</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

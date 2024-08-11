@@ -1,0 +1,18 @@
+<!-- templates/partials/navbar.html -->
+<nav class="navbar">
+    <div class="navbar-left">
+        <a href="{{ url_for('index') }}" class="nav-logo">Design Brief Generator</a>
+    </div>
+    <div class="navbar-right">
+        <a href="{{ url_for('index') }}" class="nav-button">Home</a>
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('logout') }}" class="nav-button">Logout</a>
+        {% elif 'start_time' in session %}
+            <!-- If it's a guest session -->
+            <a href="{{ url_for('signup') }}" class="nav-button">Sign Up</a>
+        {% else %}
+            <a href="{{ url_for('login') }}" class="nav-button">Login</a>
+            <a href="{{ url_for('signup') }}" class="nav-button">Sign Up</a>
+        {% endif %}
+    </div>
+</nav>
